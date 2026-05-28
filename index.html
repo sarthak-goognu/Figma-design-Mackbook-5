@@ -66,7 +66,10 @@
       gap: 24px;
     }
 
-    .logo img { height: 34px; }
+    .logo img {
+      width: 136px;
+      height: auto;
+    }
 
     .menu {
       display: flex;
@@ -401,7 +404,7 @@
     }
 
     .micro-cta {
-      margin-top: 16px;
+      margin-top: 44px;
       min-height: 44px;
       border-radius: 7px;
       padding: 8px 18px;
@@ -413,6 +416,13 @@
       gap: 16px;
       font-size: 12.5px;
       font-weight: 600;
+    }
+
+    .micro-cta .btn-small {
+      min-height: 32px;
+      padding: 0 16px;
+      font-size: 11px;
+      box-shadow: 0 7px 18px rgba(9, 64, 102, 0.10);
     }
 
     /* COMMON SECTIONS */
@@ -661,11 +671,20 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 36px;
       text-align: center;
+      align-items: start;
+      position: relative;
+      padding-bottom: 72px;
+      --how-cta-x: 0px;
+      --how-cta-width: 0px;
     }
 
-    .step { position: relative; }
+    .step {
+      position: relative;
+      min-width: 0;
+      cursor: pointer;
+    }
 
-    .step:not(:last-child)::after {
+    .step:not(:last-of-type)::after {
       content: "";
       position: absolute;
       width: 80px;
@@ -673,11 +692,86 @@
       right: -42px;
       top: 15px;
       border-top: 2px dashed #9bbfd6;
+      pointer-events: none;
+    }
+
+    .step:not(:last-of-type)::before {
+      display: none;
+    }
+
+    #how .step .square-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 5px;
+      background: var(--blue);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 14px;
+      font-size: 13px;
+      box-shadow: none;
+      border: 0;
+    }
+
+    #how .step .square-icon i {
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      background: transparent;
+      color: inherit;
+      display: inline-block;
+      font-size: inherit;
     }
 
     .step .square-icon { margin: 0 auto 14px; }
-    .step h3 { color: var(--blue); font-size: 11.5px; font-weight: 800; margin-bottom: 7px; }
-    .step p { color: #6d8090; font-size: 9.8px; line-height: 1.55; }
+    .step h3 {
+      color: var(--blue);
+      font-size: 11.5px;
+      line-height: 1.35;
+      font-weight: 800;
+      margin-bottom: 7px;
+    }
+    .step p {
+      color: #6d8090;
+      font-size: 9.8px;
+      line-height: 1.55;
+      max-width: none;
+      margin: 0 auto;
+    }
+
+    .how-floating-cta {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: var(--how-cta-width);
+      display: flex;
+      justify-content: center;
+      opacity: 0;
+      transform: translate3d(var(--how-cta-x), 14px, 0);
+      transition: transform 300ms ease, opacity 300ms ease;
+      pointer-events: none;
+      will-change: transform, opacity;
+      z-index: 4;
+    }
+
+    .steps.is-ready .how-floating-cta {
+      opacity: 1;
+      transform: translate3d(var(--how-cta-x), 0, 0);
+      pointer-events: auto;
+    }
+
+    #how .how-floating-cta .btn {
+      width: auto;
+      min-height: 52px;
+      border-radius: 8px;
+      padding: 0 32px;
+      justify-content: center;
+      gap: 10px;
+      font-size: 15px;
+      line-height: 1;
+      box-shadow: 0 8px 18px rgba(4, 120, 191, 0.24);
+      white-space: nowrap;
+    }
 
     /* OUTSOURCE */
     #outsource { background: #fff; }
@@ -909,8 +1003,26 @@
       .services-grid { grid-template-columns: repeat(3, 1fr); }
       .why-grid, .ready-layout { grid-template-columns: 1fr; }
       .industries-grid, .benefit-grid { grid-template-columns: repeat(2, 1fr); }
-      .steps { grid-template-columns: repeat(2, 1fr); }
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+        padding-bottom: 0;
+      }
+      .step::before,
       .step::after { display: none; }
+      .how-floating-cta {
+        position: static;
+        width: 100%;
+        margin-top: 30px;
+        transform: translateY(14px);
+      }
+      .steps.is-ready .how-floating-cta {
+        transform: translateY(0);
+      }
+      #how .how-floating-cta .btn {
+        width: auto;
+        min-height: 52px;
+        font-size: 15px;
+      }
     }
 
     @media (max-width: 700px) {
@@ -944,6 +1056,26 @@
       .services-grid, .stats, .industries-grid, .steps, .benefit-grid, .testimonials-grid {
         grid-template-columns: 1fr;
       }
+      .steps {
+        gap: 46px;
+      }
+      #how .step .square-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        margin-bottom: 14px;
+      }
+      #how .step .square-icon i {
+        width: auto;
+        height: auto;
+        font-size: 13px;
+      }
+      .step h3 {
+        font-size: 11.5px;
+      }
+      .step p {
+        font-size: 9.8px;
+      }
       .stats { width: calc(100% - 30px); }
       .stat {
         border-right: 0;
@@ -954,6 +1086,17 @@
         flex-direction: column;
         align-items: flex-start;
       }
+      .feature-panel {
+        gap: 18px;
+        padding: 18px 18px;
+      }
+      .feature h4 { font-size: 11.5px; }
+      .feature p { font-size: 9.8px; }
+      .micro-cta {
+        margin-top: 26px;
+        font-size: 12.5px;
+      }
+      .micro-cta .btn-small { font-size: 11px; }
     }
 
     /* FINAL FIGMA BANNER TUNING
@@ -1084,7 +1227,7 @@
     }
 
     .top-panel {
-      margin-top: -48px !important;
+      margin-top: -43px !important;
     }
 </style>
 </head>
@@ -1211,8 +1354,8 @@
             <button class="btn btn-white">Build Your HR Team</button>
           </div>
           <div class="why-images fade-up" style="transition-delay:.12s">
-            <img class="why-main-img" src="./images/Rectangle_143.png" alt="HR team">
-            <img class="why-small-img" src="./images/Rectangle_144.png" alt="Office">
+            <img class="why-main-img" src="./images/Rectangle_143.jpg" alt="HR team">
+            <img class="why-small-img" src="./images/Rectangle_144.jpg" alt="Office">
           </div>
         </div>
       </div>
@@ -1251,13 +1394,15 @@
           <h2 class="section-title">HOW IT WORKS</h2>
           <p class="section-subtitle">Simple &amp; Efficient HR Consulting Process</p>
         </div>
-        <div class="steps">
-          <article class="step fade-up"><div class="square-icon"><i class="fa-solid fa-clipboard-list"></i></div><h3>Share Your HR Requirements</h3><p>Tell us about your business challenges, hiring needs, or HR management requirements.</p></article>
-          <article class="step fade-up" style="transition-delay:.08s"><div class="square-icon"><i class="fa-solid fa-user-tie"></i></div><h3>Connect with an HR Specialist</h3><p>Our HR consultants analyze your requirements and recommend the right HR strategy.</p></article>
-          <article class="step fade-up" style="transition-delay:.16s"><div class="square-icon"><i class="fa-solid fa-gear"></i></div><h3>Implement Customized HR Solutions</h3><p>We execute and manage HR processes aligned with your business goals.</p></article>
-          <article class="step fade-up" style="transition-delay:.24s"><div class="square-icon"><i class="fa-solid fa-headset"></i></div><h3>Continuous HR Support</h3><p>Receive ongoing HR guidance and operational support as your business grows.</p></article>
+        <div class="steps" data-active-step="0">
+          <article class="step fade-up is-active" data-step-index="0" tabindex="0"><div class="square-icon"><i class="fa-regular fa-address-card"></i></div><h3>Share Your HR Requirements</h3><p>Tell us about your business challenges, hiring needs, or HR management requirements.</p></article>
+          <article class="step fade-up" data-step-index="1" tabindex="0" style="transition-delay:.08s"><div class="square-icon"><i class="fa-solid fa-link"></i></div><h3>Connect With An HR Specialist</h3><p>Our HR consultants analyze your requirements and recommend the right HR strategy.</p></article>
+          <article class="step fade-up" data-step-index="2" tabindex="0" style="transition-delay:.16s"><div class="square-icon"><i class="fa-solid fa-hand-holding-heart"></i></div><h3>Implement Customized HR Solutions</h3><p>We execute and manage HR processes aligned with your business goals.</p></article>
+          <article class="step fade-up" data-step-index="3" tabindex="0" style="transition-delay:.24s"><div class="square-icon"><i class="fa-solid fa-headset"></i></div><h3>Continuous HR Support</h3><p>Receive ongoing HR guidance and operational support as your business grows.</p></article>
+          <div class="how-floating-cta" aria-live="polite">
+            <button class="btn btn-blue" type="button"><i class="fa-solid fa-arrow-right"></i> Enquire Now</button>
+          </div>
         </div>
-        <div class="center fade-up"><button class="btn btn-blue">Enquire Now</button></div>
       </div>
     </section>
 
@@ -1345,6 +1490,51 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    const howSteps = document.querySelector('.steps');
+    if (howSteps) {
+      const stepCards = Array.from(howSteps.querySelectorAll('.step'));
+      const movingCta = howSteps.querySelector('.how-floating-cta');
+      const desktopQuery = window.matchMedia('(min-width: 1061px)');
+      let activeIndex = Number(howSteps.dataset.activeStep || 0);
+
+      const setActiveStep = (index) => {
+        activeIndex = index;
+        howSteps.dataset.activeStep = String(index);
+        stepCards.forEach((card, cardIndex) => {
+          card.classList.toggle('is-active', cardIndex === index);
+        });
+        positionHowCta();
+      };
+
+      const positionHowCta = () => {
+        const activeCard = stepCards[activeIndex];
+        if (!activeCard || !movingCta) return;
+
+        if (desktopQuery.matches) {
+          if (movingCta.parentElement !== howSteps) howSteps.appendChild(movingCta);
+          const stepsRect = howSteps.getBoundingClientRect();
+          const cardRect = activeCard.getBoundingClientRect();
+          howSteps.style.setProperty('--how-cta-x', `${cardRect.left - stepsRect.left}px`);
+          howSteps.style.setProperty('--how-cta-width', `${cardRect.width}px`);
+        } else if (movingCta.parentElement !== activeCard) {
+          activeCard.appendChild(movingCta);
+        }
+
+        howSteps.classList.add('is-ready');
+      };
+
+      stepCards.forEach((card, index) => {
+        card.addEventListener('mouseenter', () => setActiveStep(index));
+        card.addEventListener('focusin', () => setActiveStep(index));
+        card.addEventListener('click', () => setActiveStep(index));
+      });
+
+      window.addEventListener('resize', positionHowCta);
+      desktopQuery.addEventListener('change', positionHowCta);
+      window.addEventListener('load', positionHowCta);
+      positionHowCta();
+    }
   </script>
 </body>
 </html>
