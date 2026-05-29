@@ -1230,6 +1230,31 @@
       margin-top: -43px !important;
     }
 
+    .top-panel .micro-cta {
+      width: min(1120px, 100%);
+      margin: 42px auto 0;
+      min-height: 56px;
+      padding: 12px 28px;
+    }
+
+    .section-cta-wrap {
+      padding: 34px 0 22px;
+    }
+
+    #industries {
+      padding-top: 42px;
+      padding-bottom: 34px;
+    }
+
+    #how {
+      padding-top: 42px;
+      padding-bottom: 34px;
+    }
+
+    #outsource {
+      padding-top: 42px;
+    }
+
 
     /* =========================================================
        MOBILE + TABLET RESPONSIVE OVERRIDES
@@ -2649,16 +2674,21 @@
         position: relative !important;
         padding-bottom: 0 !important;
         text-align: center !important;
+        align-items: stretch !important;
       }
 
       .step {
         flex: 0 0 68% !important;
-        min-height: 118px !important;
+        height: 142px !important;
+        min-height: 142px !important;
         padding: 14px 12px !important;
         border-radius: 8px !important;
         background: #fff !important;
         border: 1px solid #e4f0f7 !important;
         box-shadow: 0 6px 14px rgba(7, 76, 121, 0.06) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
       }
 
       .step::before,
@@ -2842,6 +2872,207 @@
         font-size: 6.8px !important;
         line-height: 1.8 !important;
         text-align: center !important;
+      }
+
+      /* Mobile visual polish to match the reference cards/spacing. */
+      #services {
+        padding-top: 34px !important;
+        padding-bottom: 21px !important;
+      }
+
+      #services .container {
+        max-width: 407px !important;
+      }
+
+      .services-grid {
+        gap: 18px !important;
+        padding-inline: 20px !important;
+        padding-bottom: 21px !important;
+        margin-inline: -16px !important;
+        margin-bottom: 0 !important;
+      }
+
+      .service-card {
+        flex: 0 0 calc(50% - 9px) !important;
+        min-height: 219px !important;
+        padding: 20px 15px 15px !important;
+        border: 0 !important;
+        border-radius: 12px !important;
+        box-shadow: 0 8px 18px rgba(7, 76, 121, 0.08) !important;
+      }
+
+      .service-card .square-icon {
+        width: 36px !important;
+        height: 36px !important;
+        border-radius: 8px !important;
+        margin-bottom: 25px !important;
+        font-size: 13px !important;
+      }
+
+      .service-card h3 {
+        color: #111827 !important;
+        font-size: 15px !important;
+        line-height: 1.35 !important;
+        font-weight: 700 !important;
+        margin-bottom: 17px !important;
+      }
+
+      .service-card p {
+        color: #5f6f7f !important;
+        font-size: 10px !important;
+        line-height: 1.45 !important;
+      }
+
+      .card-link {
+        font-size: 9px !important;
+        line-height: 1 !important;
+      }
+
+      #services .container::after {
+        height: 12px !important;
+        margin: 0 0 32px !important;
+        font-size: 22px !important;
+        letter-spacing: 6px !important;
+      }
+
+      #services .center {
+        margin-top: 0 !important;
+        margin-bottom: 24px !important;
+      }
+
+      #services .center .btn {
+        width: 158px !important;
+        min-height: 34px !important;
+        padding: 0 16px !important;
+        border-radius: 5px !important;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+      }
+
+      .stats-wrap {
+        padding: 0 16px 21px !important;
+      }
+
+      .stats {
+        width: 100% !important;
+        max-width: 371px !important;
+        min-height: 53px !important;
+        border-radius: 7px !important;
+      }
+
+      .stat {
+        min-height: 53px !important;
+        padding: 8px 7px !important;
+        gap: 6px !important;
+      }
+
+      .stat i {
+        font-size: 21px !important;
+        opacity: 0.9 !important;
+      }
+
+      .stat strong {
+        font-size: 15px !important;
+        line-height: 1 !important;
+        font-weight: 700 !important;
+      }
+
+      .stat span {
+        font-size: 5px !important;
+        line-height: 1.25 !important;
+        margin-top: 4px !important;
+        font-weight: 400 !important;
+        opacity: 0.86 !important;
+      }
+
+      .why-section {
+        padding: 33px 0 30px !important;
+      }
+
+      .why-section .section-head {
+        margin-bottom: 0 !important;
+      }
+
+      .why-section .section-title {
+        max-width: 286px !important;
+        gap: 15px !important;
+        justify-content: flex-start !important;
+        color: #fff !important;
+        font-size: 18px !important;
+        line-height: 1.45 !important;
+        font-weight: 650 !important;
+        margin: 0 auto 13px !important;
+      }
+
+      .why-section .section-title::before {
+        width: 50px !important;
+        height: 3px !important;
+        flex: 0 0 50px !important;
+      }
+
+      .why-section .section-subtitle {
+        max-width: 286px !important;
+        color: #fff !important;
+        font-size: 13px !important;
+        line-height: 1.45 !important;
+        font-weight: 500 !important;
+        text-align: left !important;
+      }
+
+      #industries {
+        padding-top: 24px !important;
+        padding-bottom: 15px !important;
+      }
+
+      #industries .section-head {
+        margin-bottom: 14px !important;
+      }
+
+      #industries .center {
+        margin-top: 8px !important;
+      }
+
+      #industries .container::after {
+        margin: -2px 0 10px !important;
+      }
+
+      #how {
+        padding-top: 18px !important;
+        padding-bottom: 12px !important;
+      }
+
+      #how .container::after {
+        margin: -2px 0 8px !important;
+      }
+
+      #outsource {
+        padding-top: 16px !important;
+        padding-bottom: 12px !important;
+      }
+
+      #outsource .section-head {
+        margin-bottom: 14px !important;
+      }
+
+      #outsource .container::after {
+        margin: -2px 0 8px !important;
+      }
+
+      #testimonials {
+        padding-top: 16px !important;
+        padding-bottom: 12px !important;
+      }
+
+      #testimonials .section-head {
+        margin-bottom: 14px !important;
+      }
+
+      #testimonials .container::after {
+        margin: -2px 0 8px !important;
+      }
+
+      #ready {
+        padding-top: 16px !important;
       }
     }
 
@@ -3049,7 +3280,7 @@
       </div>
     </section>
 
-    <div style="padding: 42px 0;">
+    <div class="section-cta-wrap">
       <div class="boxed-cta fade-up">
         <p>Ready to get started? Your first consultation<br>is completely free.</p>
         <button class="btn btn-white btn-small">Connect with our Team</button>
